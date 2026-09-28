@@ -6,6 +6,26 @@ An offline PlantUML viewer and Finder Quick Look extension for macOS. Render dia
 
 参考 [plantuml-for-github](https://github.com/plantuml/plantuml-for-github) 的实现：将 TeaVM 编译的 PlantUML JavaScript 引擎与标准库打包到原生 Quick Look 扩展中，用 WebKit 本地渲染 SVG。无需 Java、Graphviz、Docker 或渲染服务器，预览时不下载依赖、不发送源码。
 
+## 功能介绍 / Features
+
+### 中文
+
+- **Finder 快速预览**：选中 PlantUML 源文件后按空格，即可查看图表；也可使用配套应用直接打开文件。
+- **完全离线渲染**：内置渲染引擎和部分 PlantUML 标准库，无需安装 Java、Graphviz 或启动渲染服务器，图表源码始终留在本机。
+- **多图浏览**：自动识别同一文件中的多个图表，通过下拉框切换查看。
+- **便捷阅读**：支持适合窗口、原始大小、触控板捏合缩放、源码查看，以及系统浅色／深色外观。
+- **图片导出**：将当前图表保存为 PNG 或 SVG，导出完整图表，不受预览窗口大小和缩放比例影响。
+- **多种文件格式**：支持 `.puml`、`.plantuml`、`.pu`、`.wsd`、`.iuml`，可读取 UTF-8 和带 BOM 的 UTF-16 文件，支持中文内容。
+
+### English
+
+- **Finder Quick Look**: Select a PlantUML source file and press Space to preview the diagram, or open it directly in the companion app.
+- **Fully offline rendering**: The rendering engine and selected PlantUML standard libraries are bundled. No Java, Graphviz, or rendering server is required, and diagram source stays on your Mac.
+- **Multiple diagrams per file**: Automatically detect diagrams in a single file and switch between them with a dropdown.
+- **Comfortable viewing**: Fit diagrams to the window, view at original size, pinch to zoom, inspect source, and follow the system's light or dark appearance.
+- **PNG and SVG export**: Save the selected diagram as a complete image, independent of the preview window size or zoom level.
+- **Multiple file formats**: Open `.puml`, `.plantuml`, `.pu`, `.wsd`, and `.iuml` files, with support for UTF-8, UTF-16 with a BOM, and Chinese text.
+
 ## 构建
 
 要求 macOS 13+、Apple Command Line Tools（包含 Swift 和 macOS SDK）、Python 3。无需完整 Xcode。生成当前电脑架构的本地应用；可通过 `ARCH=arm64` 或 `ARCH=x86_64` 交叉构建。
