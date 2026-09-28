@@ -4,7 +4,6 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import platform
 import plistlib
 import shutil
 import subprocess
@@ -44,6 +43,7 @@ def main():
         resources = bundle / 'Contents/Resources'
         shutil.copytree(ROOT / 'Resources', resources)
         shutil.copy2(ROOT / 'THIRD_PARTY_NOTICES.md', resources)
+        shutil.copy2(ROOT / 'LICENSE', resources)
         # TeaVM's export is mechanically wrapped as a classic script. This avoids
         # module-origin quirks in WKURLSchemeHandler without changing the engine.
         original = (resources / 'Web/vendor/plantuml.js').read_text()
@@ -75,11 +75,12 @@ def main():
     plist(entitlements, {'com.apple.security.app-sandbox': True, 'com.apple.security.network.client': True,
                          'com.apple.security.files.user-selected.read-write': True})
     sdk = subprocess.check_output(['xcrun', '--show-sdk-path'], text=True).strip()
-    arch = os.environ.get('ARCH', platform.machine())
-    if arch not in ('arm64', 'x86_64'):
+    arch = os.environ.get('ARCH', 'arm64')
+    if arch != 'arm64':
         raise SystemExit('Unsupported architecture: ' + arch)
     common = ['xcrun', 'swiftc', '-swift-version', '5', '-O', '-sdk', sdk,
               '-target', arch + '-apple-macosx13.0', '-module-cache-path', BUILD / 'ModuleCache',
+              '-file-prefix-map', str(ROOT) + '=.',
               '-framework', 'AppKit', '-framework', 'WebKit']
     run(*common, '-module-name', 'PlantUMLPreviewApp', ROOT / 'Sources/RendererViewController.swift',
         ROOT / 'Sources/App.swift', '-o', APP / 'Contents/MacOS/PlantUMLPreview')

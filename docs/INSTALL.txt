@@ -1,0 +1,68 @@
+PlantUML Preview 1.0.0 for macOS
+==============================
+
+Requirements / 系统要求
+macOS 13 or later on Apple Silicon (M-series) Macs only.
+Requires no Java, Graphviz, Xcode, Python, or rendering server to run.
+支持 macOS 13 及以上，仅适用于 Apple Silicon（M 系列芯片）Mac。
+使用时无需安装 Java、Graphviz、Xcode、Python 或渲染服务器。
+
+Install / 安装
+1. Open the DMG and drag PlantUML Preview.app into Applications.
+   With the ZIP, unzip it and move the app into Applications.
+   打开 DMG，将 PlantUML Preview.app 拖到 Applications。
+   如下载 ZIP，请解压后将应用移到“应用程序”。
+2. Open PlantUML Preview once. If macOS cannot verify the developer,
+   use System Settings > Privacy & Security > Open Anyway only after
+   checking that this download came from the project release page.
+   首次打开应用。如果 macOS 提示无法验证开发者，请确认下载来源，
+   再到“系统设置 → 隐私与安全”中为此应用选择“仍要打开”。
+3. Enable PlantUML Preview under Quick Look extensions in System Settings.
+   On recent macOS versions: General > Login Items & Extensions > Quick Look.
+   在系统设置的“快速查看”扩展中启用 PlantUML Preview。
+   较新系统路径为“通用 → 登录项与扩展 → 快速查看”，其他版本可搜索“扩展”。
+4. Select a .puml file in Finder and press Space, or open it in the app.
+   Try Examples/sequence.puml for a Chinese sequence diagram.
+   在 Finder 选中 .puml 文件后按空格，也可以在应用内打开文件。
+   可用 Examples/sequence.puml 测试中文时序图。
+
+Signing / 签名状态
+This release uses an ad-hoc signature. It is not Developer ID signed or
+notarized by Apple. The first launch may be blocked by Gatekeeper.
+It is not a zero-prompt, Apple-notarized distribution.
+本版本使用 ad-hoc 本地签名，未使用 Developer ID 证书签名，也未经 Apple 公证。
+首次启动可能被 Gatekeeper 拦截，需要用户单独允许此应用。
+Apple's instructions / Apple 官方说明：
+https://support.apple.com/en-us/102445
+
+If the app still will not open, report the exact macOS message through the
+project Issues page. Do not disable Gatekeeper globally.
+若仍无法打开，请在项目 Issues 中提供 macOS 的具体提示；不要全局关闭 Gatekeeper。
+
+Update / 更新
+Quit the app and close open Quick Look previews before replacing it.
+If you used a local build from before this public release, move the old app
+out of Applications first; it used a different bundle identifier.
+替换前先退出应用并关闭快速查看窗口。开源前的本地版本使用不同应用标识，
+请先将旧版移出“应用程序”，再安装本版本。
+
+If Finder does not show the extension / Finder 扩展未出现时
+Open the app from Applications once and check the Quick Look settings.
+If needed, run these commands in Terminal after installing to /Applications:
+请先从“应用程序”打开一次应用并检查扩展设置。必要时可执行：
+
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "/Applications/PlantUML Preview.app"
+pluginkit -a "/Applications/PlantUML Preview.app/Contents/PlugIns/PlantUMLPreview.appex"
+pluginkit -e use -i io.github.dlutcat.PlantUMLPreview.Preview
+
+Verification / 校验
+Download SHA256SUMS.txt beside the DMG and ZIP, then use:
+可将 SHA256SUMS.txt 与两个安装包放在同一目录，执行：
+shasum -a 256 -c SHA256SUMS.txt
+
+Project / 项目
+https://github.com/dlutcat/plantuml-quicklook
+Releases / 下载：https://github.com/dlutcat/plantuml-quicklook/releases
+Issues / 反馈：https://github.com/dlutcat/plantuml-quicklook/issues
+See SOURCE.txt for the exact source commit and LICENSE.txt for GPL terms.
+确切源码提交见 SOURCE.txt，许可证见 LICENSE.txt 及第三方声明。

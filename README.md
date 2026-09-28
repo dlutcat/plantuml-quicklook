@@ -6,9 +6,37 @@ An offline PlantUML viewer and Finder Quick Look extension for macOS. Render dia
 
 参考 [plantuml-for-github](https://github.com/plantuml/plantuml-for-github) 的实现：将 TeaVM 编译的 PlantUML JavaScript 引擎与标准库打包到原生 Quick Look 扩展中，用 WebKit 本地渲染 SVG。无需 Java、Graphviz、Docker 或渲染服务器，预览时不下载依赖、不发送源码。
 
-## 构建
+## 功能介绍 / Features
 
-要求 macOS 13+、Apple Command Line Tools（包含 Swift 和 macOS SDK）、Python 3。无需完整 Xcode。生成当前电脑架构的本地应用；可通过 `ARCH=arm64` 或 `ARCH=x86_64` 交叉构建。
+### 中文
+
+- **Finder 快速预览**：选中 PlantUML 源文件后按空格，即可查看图表；也可使用配套应用直接打开文件。
+- **完全离线渲染**：内置渲染引擎和部分 PlantUML 标准库，无需安装 Java、Graphviz 或启动渲染服务器，图表源码始终留在本机。
+- **多图浏览**：自动识别同一文件中的多个图表，通过下拉框切换查看。
+- **便捷阅读**：支持适合窗口、原始大小、触控板捏合缩放、源码查看，以及系统浅色／深色外观。
+- **图片导出**：将当前图表保存为 PNG 或 SVG，导出完整图表，不受预览窗口大小和缩放比例影响。
+- **多种文件格式**：支持 `.puml`、`.plantuml`、`.pu`、`.wsd`、`.iuml`，可读取 UTF-8 和带 BOM 的 UTF-16 文件，支持中文内容。
+
+### English
+
+- **Finder Quick Look**: Select a PlantUML source file and press Space to preview the diagram, or open it directly in the companion app.
+- **Fully offline rendering**: The rendering engine and selected PlantUML standard libraries are bundled. No Java, Graphviz, or rendering server is required, and diagram source stays on your Mac.
+- **Multiple diagrams per file**: Automatically detect diagrams in a single file and switch between them with a dropdown.
+- **Comfortable viewing**: Fit diagrams to the window, view at original size, pinch to zoom, inspect source, and follow the system's light or dark appearance.
+- **PNG and SVG export**: Save the selected diagram as a complete image, independent of the preview window size or zoom level.
+- **Multiple file formats**: Open `.puml`, `.plantuml`, `.pu`, `.wsd`, and `.iuml` files, with support for UTF-8, UTF-16 with a BOM, and Chinese text.
+
+## 下载安装
+
+从 [GitHub Releases](https://github.com/dlutcat/plantuml-quicklook/releases/latest) 下载 `PlantUML-Preview-1.0.0-macOS-arm64.dmg`，打开后将 **PlantUML Preview.app** 拖到 **Applications**，无需编译或安装开发工具。也可下载 ZIP 解压安装。要求 **macOS 13+、Apple Silicon（M 系列芯片）Mac**。
+
+**当前下载版使用 ad-hoc 本地签名，未经过 Apple 公证。** 首次打开可能被 macOS 拦截；确认来自本项目后，按 [Apple 官方说明](https://support.apple.com/en-us/102445)，在“系统设置 → 隐私与安全”中为该应用选择“仍要打开”。安装包附有中英文说明、示例与许可证，Release 同时提供 SHA-256 校验值。完整步骤见 [安装说明](docs/INSTALL.txt)。
+
+打开应用一次，再在系统设置的“快速查看”扩展中启用 **PlantUML Preview**，即可在 Finder 选中 `.puml` 文件后按空格预览。
+
+## 从源码构建
+
+要求 macOS 13+、Apple Command Line Tools（包含 Swift 和 macOS SDK）、Python 3。无需完整 Xcode。构建目标为 Apple Silicon（arm64）。
 
 ```bash
 git clone https://github.com/dlutcat/plantuml-quicklook.git
@@ -17,6 +45,15 @@ python3 scripts/build.py
 ```
 
 输出：`dist/PlantUML Preview.app`，其内包含 `PlantUMLPreview.appex`。构建会校验 `vendor-lock.json` 中的上游 SHA-256，默认使用 ad-hoc 本地签名。指定 `SIGN_IDENTITY` 可使用已有签名身份；此脚本不做公证或 App Store 发布。
+
+从已提交且无本地修改的源码制作 Release 安装包：
+
+```bash
+python3 scripts/build.py
+python3 scripts/package-release.py
+```
+
+输出位于 `dist/releases/v1.0.0/`，包含 DMG、ZIP 与 `SHA256SUMS.txt`。打包前会检查应用及扩展均为 arm64，并验证代码签名完整性；这不等于 Apple 公证。
 
 ## 安装与使用
 
@@ -52,7 +89,7 @@ bash scripts/install.sh
 - 未打包的 AWS、Material、Office 等大型库不支持。外部图片、远程字体、链接跳转被禁用。
 - `.iuml` 若只是没有开始／结束标记的代码片段，会显示缺少图表标记的提示。
 - 每个源文件最多 1 MB；单次渲染有 20 秒 JavaScript 和 25 秒原生超时。
-- 这是本地签名构建，不能冒充经过 Apple 公证的分发版本。跨机器分发应准备正式签名与公证。
+- 当前下载版为本地签名，未经 Apple 公证；首次打开可能需要手动允许。正式 Developer ID 签名与公证尚未提供。
 
 ## 验证
 
@@ -71,7 +108,7 @@ node --test Tests/source.test.cjs
 
 输出结果位于 `.build/smoke/results.json`，并保留 SVG、PNG 导出文件和预览截图。测试与 Quick Look 扩展共享同一个 Swift 预览控制器、WebKit 配置和渲染页面；Finder 注册与空格预览仍应单独验证。
 
-当前公开示例均为虚构的图书馆和通用交互内容。可复核 [验证结果](Tests/verified-results.json)，其中列出测试平台、检查项及验证范围。Finder 注册、空格预览和系统保存面板需要在目标电脑上单独验证；其他 macOS 版本和 Intel Mac 尚未实机验证。
+当前公开示例均为虚构的图书馆和通用交互内容。可复核 [验证结果](Tests/verified-results.json)，其中列出测试平台、检查项及验证范围。Finder 注册、空格预览和系统保存面板需要在目标电脑上单独验证；其他 macOS 版本尚未实机验证。
 
 可查询注册状态：
 

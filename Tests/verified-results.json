@@ -4,11 +4,11 @@
   "bundle_id": "io.github.dlutcat.PlantUMLPreview",
   "source_tests": 4,
   "webkit_checks": 17,
-  "scope": "Fresh source tests and native WebKit smoke tests against the public, fictional examples. Includes PNG/SVG exports and network blocking.",
+  "scope": "Apple Silicon release app: 4 source tests and 17 native arm64 WebKit checks. Includes PNG/SVG exports and network blocking.",
   "not_verified": [
     "Finder registration and space-bar preview for the new public bundle identifier",
     "Interactive save panel for the new public bundle identifier",
-    "Intel Mac hardware and other macOS versions"
+    "Other macOS versions"
   ],
   "results": [
     {
@@ -135,5 +135,15 @@
       "file": "network-policy",
       "passed": true
     }
-  ]
+  ],
+  "release_version": "1.0.0",
+  "binary_architectures": [
+    "arm64"
+  ],
+  "architecture_checks": {
+    "arm64": {
+      "execution": "native Apple Silicon",
+      "passed": 17
+    }
+  }
 }
