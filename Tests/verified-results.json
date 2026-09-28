@@ -1,0 +1,139 @@
+{
+  "date": "2026-09-28",
+  "platform": "macOS 26.6.2, arm64",
+  "bundle_id": "io.github.dlutcat.PlantUMLPreview",
+  "source_tests": 4,
+  "webkit_checks": 17,
+  "scope": "Fresh source tests and native WebKit smoke tests against the public, fictional examples. Includes PNG/SVG exports and network blocking.",
+  "not_verified": [
+    "Finder registration and space-bar preview for the new public bundle identifier",
+    "Interactive save panel for the new public bundle identifier",
+    "Intel Mac hardware and other macOS versions"
+  ],
+  "results": [
+    {
+      "diagrams": 1,
+      "error": "",
+      "file": "c4.puml",
+      "height": 325,
+      "ok": true,
+      "passed": true,
+      "text": "Library system context«person»Reader«system»Library Browse and borrow booksFinds books",
+      "type": "result",
+      "width": 198
+    },
+    {
+      "error": "",
+      "file": "c4.puml:image-export",
+      "passed": true
+    },
+    {
+      "diagrams": 1,
+      "error": "",
+      "file": "class.puml",
+      "height": 254,
+      "ok": true,
+      "passed": true,
+      "text": "Library domainCLibraryname: StringfindBook()CBooktitle: String1..*1",
+      "type": "result",
+      "width": 123
+    },
+    {
+      "error": "",
+      "file": "class.puml:image-export",
+      "passed": true
+    },
+    {
+      "error": "未内置标准库：awslib。本版本包含 C4、Archimate 等 16 个标准库。",
+      "file": "error-library.puml",
+      "ok": false,
+      "passed": true,
+      "type": "result"
+    },
+    {
+      "error": "",
+      "file": "error-library.puml:image-export",
+      "passed": true
+    },
+    {
+      "error": "离线预览仅支持内置标准库 !include <库/文件>。请先将本地文件或 URL 引用展开为单个文件。",
+      "file": "error-remote-include.puml",
+      "ok": false,
+      "passed": true,
+      "type": "result"
+    },
+    {
+      "error": "",
+      "file": "error-remote-include.puml:image-export",
+      "passed": true
+    },
+    {
+      "diagrams": 1,
+      "error": "PlantUML syntax error",
+      "file": "error-syntax.puml",
+      "height": 154,
+      "ok": false,
+      "passed": true,
+      "text": "PlantUML version $version$ / $git.commit.id$ [Unknown compile time][From textarea (line 3) ] @startumlAlice -> Bob: Hellothis is definitely not a valid sequence diagram command !!! Syntax Error? (Assumed diagram type: sequence)",
+      "type": "result",
+      "width": 413
+    },
+    {
+      "error": "",
+      "file": "error-syntax.puml:image-export",
+      "passed": true
+    },
+    {
+      "diagrams": 2,
+      "error": "",
+      "file": "multiple.puml",
+      "height": 171,
+      "ok": true,
+      "passed": true,
+      "text": "第一张图AliceBobAliceBobAliceBobFirst diagram",
+      "type": "result",
+      "width": 152
+    },
+    {
+      "error": "",
+      "file": "multiple.puml:image-export",
+      "passed": true
+    },
+    {
+      "diagrams": 2,
+      "error": "",
+      "file": "multiple.puml:second-diagram",
+      "height": 174,
+      "ok": true,
+      "passed": true,
+      "text": "第二张图第二张图的活动",
+      "type": "result",
+      "width": 119
+    },
+    {
+      "error": "",
+      "file": "multiple.puml:image-export",
+      "passed": true
+    },
+    {
+      "diagrams": 1,
+      "error": "",
+      "file": "sequence.puml",
+      "height": 312,
+      "ok": true,
+      "passed": true,
+      "text": "图书查询流程.........读者图书馆图书目录读者图书馆图书目录查询图书检查查询条件搜索图书图书列表返回查询结果",
+      "type": "result",
+      "width": 270
+    },
+    {
+      "error": "",
+      "file": "sequence.puml:image-export",
+      "passed": true
+    },
+    {
+      "file": "network-policy",
+      "passed": true
+    }
+  ]
+}

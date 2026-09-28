@@ -1,0 +1,11 @@
+@startuml
+title 第一张图
+Alice -> Bob: First diagram
+@enduml
+
+@startuml
+title 第二张图
+start
+:第二张图的活动;
+stop
+@enduml

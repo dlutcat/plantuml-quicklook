@@ -1,0 +1,25 @@
+.build/
+dist/
+.DS_Store
+
+# Local configuration, credentials, signing material, and editor state.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.keychain
+*.keychain-db
+*.log
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.agents/
+.codex/
+.claude/

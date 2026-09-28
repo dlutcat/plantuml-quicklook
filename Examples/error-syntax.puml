@@ -1,0 +1,4 @@
+@startuml
+Alice -> Bob: Hello
+this is definitely not a valid sequence diagram command !!!
+@enduml

@@ -1,0 +1,4 @@
+@startuml
+!include https://example.com/secret.puml
+Alice -> Bob: Hello
+@enduml

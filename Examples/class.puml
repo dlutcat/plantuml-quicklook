@@ -1,0 +1,11 @@
+@startuml
+title Library domain
+class Library {
+  +name: String
+  +findBook()
+}
+class Book {
+  +title: String
+}
+Library "1" --> "1..*" Book
+@enduml

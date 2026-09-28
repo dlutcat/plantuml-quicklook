@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src puml-resource:; style-src puml-resource: 'unsafe-inline'; img-src data: blob:; font-src 'none'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>PlantUML Preview</title>
+  <link rel="stylesheet" href="preview.css">
+  <script defer src="vendor/plantuml.classic.js"></script>
+  <script defer src="source.js"></script>
+  <script defer src="preview.js"></script>
+</head>
+<body>
+  <header>
+    <span class="brand">PlantUML</span>
+    <select id="diagrams" aria-label="选择图表" hidden></select>
+    <span class="spacer"></span>
+    <button id="fit" title="适合窗口">适合窗口</button>
+    <button id="actual" title="原始大小">100%</button>
+    <button id="source-toggle" aria-pressed="false">查看源码</button>
+    <select id="export-format" aria-label="下载图片格式" disabled>
+      <option value="png">PNG</option>
+      <option value="svg">SVG</option>
+    </select>
+    <button id="download" title="保存当前图表为图片" disabled>下载图片</button>
+  </header>
+  <main id="viewport"><div id="output"></div><pre id="source" hidden></pre></main>
+  <footer><span id="status" role="status">正在加载本地引擎…</span><span>本地渲染 · 离线可用</span></footer>
+</body>
+</html>

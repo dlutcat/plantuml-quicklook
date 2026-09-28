@@ -1,0 +1,7 @@
+@startuml
+!include <C4/C4_Context>
+title Library system context
+Person(reader, "Reader")
+System(library, "Library", "Browse and borrow books")
+Rel(reader, library, "Finds books")
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+title 图书查询流程
+participant "读者" as Reader
+participant "图书馆" as Library
+participant "图书目录" as Catalog
+Reader -> Library: 查询图书
+activate Library
+Library -> Library: 检查查询条件
+Library -> Catalog: 搜索图书
+Catalog --> Library: 图书列表
+Library --> Reader: 返回查询结果
+deactivate Library
+@enduml

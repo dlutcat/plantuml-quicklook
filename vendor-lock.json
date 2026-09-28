@@ -1,0 +1,23 @@
+{
+  "repository": "https://github.com/plantuml/plantuml-for-github",
+  "commit": "6449407013230c644576753263266b44fc8d1d8d",
+  "files": {
+    "Resources/Web/adaml.min.js": "2eea767c31c06d1e0c3137d71581e7c66bf2b0d3fd07d7b4d02ba221b8be73a5",
+    "Resources/Web/archimate.min.js": "5a06d2cc43cecff2b720cd6cbc08d60a6259211316f779c9f666c8c5988dfd85",
+    "Resources/Web/azure.min.js": "aa1ffc61501675159dedd678f03fb0a4a4bfa1802b7dd31be3194543ef8acffd",
+    "Resources/Web/c4.min.js": "961653a412fa60ca3f0a262f788a3b65c8e9c8fbf6475df7beb79b11bb22c7be",
+    "Resources/Web/classy-c4.min.js": "58fc0c02dd66557baa0545a2cc6ce1bae6c667221e77dee327051ebc9ac30b53",
+    "Resources/Web/classy.min.js": "734cdc4c516ec78cbb895565037d3eebdf869d90c401b430d41ad0b4a2b1f38f",
+    "Resources/Web/cloudinsight.min.js": "b14f6a633d7131473af3baecb572a9231775c348876b58ec44391239e451e3ff",
+    "Resources/Web/cloudogu.min.js": "cc3b2b3640fd122616f0826e1ea01bc40b2d0050fe174849b8ef2a98646eb74b",
+    "Resources/Web/domainstory.min.js": "87bd5b5c166510e1dfcf157c28c68f7d1ec90b77cde81d45e76586c54f91c864",
+    "Resources/Web/edgy.min.js": "3c786356059a37d04a354bf6e451c94c5b1db3374a1531a33c174a007ef237c3",
+    "Resources/Web/eip.min.js": "1b075a46c425c3f83e4aa6c9e980cae117c0a4f772db0599498a4be7540a1774",
+    "Resources/Web/elastic.min.js": "18567b88fd7b9856cc98d4112fc0b270f2e8d47a2e56291c3cfe32729c140499",
+    "Resources/Web/gcp.min.js": "3aa51fb5954bb23df1336d13b7bf24155c02dfee19833c5fcc795b6d3e4d3373",
+    "Resources/Web/k8s.min.js": "ae7f34bd12855986701d0190f2d1cb9a82c71f82ccc3bf855e013c5074dfe891",
+    "Resources/Web/kubernetes.min.js": "5f901a02b3398d2a6987af32df106c97ecc6ce449b8ce78940076b2f4c2839b5",
+    "Resources/Web/osa2.min.js": "e01336fcc1e8c30b5540e820f10a3cb4caf8f95a983ff6585d86bcefe3c272f4",
+    "Resources/Web/vendor/plantuml.js": "191e9f20a4684b1d71432c714dd4375c728e876c3eff772bdf0dd49567eef36f"
+  }
+}

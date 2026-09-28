@@ -1,0 +1,26 @@
+:root { color-scheme: light dark; font: 13px -apple-system, BlinkMacSystemFont, sans-serif; --bg: #f7f8fa; --ink: #25312e; --line: #dce2df; --panel: #fff; --muted: #64756c; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink); }
+body { display: flex; flex-direction: column; }
+header { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+.brand { color: #278155; font-size: 14px; font-weight: 650; margin-right: 10px; }
+.spacer { flex: 1; }
+button, select { font: inherit; color: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); padding: 5px 9px; }
+button:not(:disabled):hover { background: var(--bg); }
+button:disabled, select:disabled { opacity: .45; cursor: default; }
+button[aria-pressed="true"] { border-color: #278155; color: #278155; }
+select { max-width: 220px; }
+main { overflow: auto; flex: 1; padding: 22px; }
+#output { width: fit-content; min-width: 100%; }
+#output svg { display: block; margin: 0 auto; }
+#output.fit { width: 100%; }
+#output.fit svg { max-width: 100%; height: auto; }
+pre { white-space: pre; margin: 0; font: 12px/1.65 ui-monospace, Menlo, monospace; tab-size: 2; }
+footer { display: flex; justify-content: space-between; gap: 16px; padding: 9px 16px; color: var(--muted); font-size: 11px; border-top: 1px solid var(--line); }
+.error { max-width: 720px; margin: 28px auto; padding: 18px 20px; color: #a02929; border: 1px solid #e8baba; border-radius: 8px; background: #fff4f3; white-space: pre-wrap; line-height: 1.6; }
+[hidden] { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #171c1a; --ink: #e3e9e5; --line: #35423b; --panel: #222a26; --muted: #9aac9f; }
+  .brand { color: #73c99a; }
+  .error { background: #3e2325; color: #ffb4b4; border-color: #6c3a3d; }
+}
